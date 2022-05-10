@@ -1,0 +1,236 @@
+<div class="col-md-12">
+    <h1  class="title">Administrator Page</h1>
+  
+    <div id = "num2" class="card card-container">
+      <form
+        
+      >
+        <div id = "num3" class="form-group">
+          <label for="name">Foodname</label>
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            [(ngModel)]="form.name"
+            
+          />
+          
+        </div>
+        <div id = "num4" class="form-group">
+          <label for="description">Description</label>
+          <input
+            type="description"
+            class="form-control"
+            name="description"
+            [(ngModel)]="form.description"
+          />
+          
+        </div>
+
+        <div id = "num5" class="form-group">
+          <label for="price">Price</label>
+          <input
+            type="price"
+            class="form-control"
+            name="price"
+            [(ngModel)]="form.price"
+          />
+          
+        </div>
+
+        <div id = "num6" class="form-group">
+            <label for="category">Category</label>
+            <input
+              type="category"
+              class="form-control"
+              name="category"
+              [(ngModel)]="form.category"
+            />
+            
+          </div>
+
+          <div class="input-group-append">
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              (click)="onSubmit()"
+            >
+              Add Food
+            </button>
+          </div>
+
+          
+
+        <div class="alert alert-warning" *ngIf="!isSuccessful">
+            No food added!<br />{{ errorMessage }}
+          </div>
+      </form>
+
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Food added!
+      </div>
+
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="onButtonFoods()"
+        >
+          Show all Foods
+        </button>
+      </div>
+
+      <div class="List of Foods" *ngIf="isListHere">
+        <table>
+            <tr *ngFor="let item of dataList">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.description}}</td>
+            </tr>
+        </table>
+
+       </div>
+
+       <div id = "num7" class="form-group">
+        <label for="price">Maximal Price</label>
+        <input
+          type="text"
+          class="form-control"
+          name="price"
+          [(ngModel)]="newdta.price"
+          
+        />
+        
+      </div>
+
+       <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="onButtonFilter()"
+        >
+          Show Filtered Prices
+        </button>
+      </div>
+
+      <div class="List of Foods Filtered" *ngIf="isFilteredListHere">
+        <table>
+            <tr *ngFor="let item of dataFilteredList">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.description}}</td>
+            </tr>
+        </table>
+
+       </div>
+
+
+       <div class="alert alert-warning">
+         <br/>
+         <br/>
+        Restaurant Section<br />
+      </div>
+
+
+      <div id = "num11" class="form-group">
+        <label for="restaurantName">Restaurant Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="restaurantName"
+          [(ngModel)]="rest.restaurantName"
+          
+        />
+        
+      </div>
+      <div id = "num12" class="form-group">
+        <label for="restaurantPassword">Restaurant Password</label>
+        <input
+          type="description"
+          class="form-control"
+          name="restaurantPassword"
+          [(ngModel)]="rest.restaurantPassword"
+        />
+        
+      </div>
+
+      <div id = "num13" class="form-group">
+        <label for="idFood1">Food1 id</label>
+        <input
+          type="price"
+          class="form-control"
+          name="idFood1"
+          [(ngModel)]="rest.idFood1"
+        />
+        
+      </div>
+
+      <div id = "num14" class="form-group">
+          <label for="idFood2">Food2 id</label>
+          <input
+            type="category"
+            class="form-control"
+            name="idFood2"
+            [(ngModel)]="rest.idFood2"
+          />
+          
+        </div>
+
+        <div id = "num15" class="form-group">
+          <label for="idFood3">Food3 id</label>
+          <input
+            type="category"
+            class="form-control"
+            name="idFood3"
+            [(ngModel)]="rest.idFood3"
+          />
+          
+        </div>
+
+
+        <div id = "num16" class="form-group">
+          <label for="idFood4">Food4 id</label>
+          <input
+            type="category"
+            class="form-control"
+            name="idFood4"
+            [(ngModel)]="rest.idFood4"
+          />
+          
+        </div>
+
+
+        <div id = "num17" class="form-group">
+          <label for="idFood5">Food5 id</label>
+          <input
+            type="idFood5"
+            class="form-control"
+            name="category"
+            [(ngModel)]="rest.idFood5"
+          />
+          
+        </div>
+
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="addRestaurant()"
+          >
+            Add Restaurant
+          </button>
+
+          <div class="alert alert-warning" *ngIf="!isRestaurantAdded">
+            No restaurant added!<br />{{ errorMessage }}
+          </div>
+
+          <div class="alert alert-success" *ngIf="isRestaurantAdded">
+            Restaurant added!
+          </div>
+
+        </div>
+
+
+
+    </div>
+  </div> 

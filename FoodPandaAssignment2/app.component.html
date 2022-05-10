@@ -1,0 +1,39 @@
+
+<div id="app">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">FoodPanda</a>
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">      
+          <li class="nav-item">
+        <a href="/setup" class="nav-link" routerLink="setup">Set Up</a>
+      </li>
+      
+    </ul> 
+  
+    
+
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">      
+      <li class="nav-item">
+          <a href="/adminreg" class="nav-link" routerLink="adminreg" >Administrator</a>
+      </li>
+  
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="logInAdmin">
+      <li class="nav-item">
+        <a href="/adminactivities" class="nav-link" routerLink="adminactivities">Admin Activities</a>
+      </li></ul>
+
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">      
+        <li class="nav-item">
+            <a href="/clientpage" class="nav-link" routerLink="clientpage" >Client Page</a>
+        </li>
+    
+      </ul> 
+
+  </nav>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+

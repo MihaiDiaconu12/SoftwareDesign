@@ -1,0 +1,131 @@
+<div class="col-md-12">
+    <h1  class="title">Client Page</h1>
+  
+    <div id = "num2" class="card card-container" >
+        <div id = "num1" class="form-group" *ngIf="!isClientLoggedIn">
+          <label for="username">Username</label>
+          <input
+            type="username"
+            class="form-control"
+            [(ngModel)]="credentials.username"
+          />
+          
+        </div>
+
+        <div id = "num2" class="form-group" *ngIf="!isClientLoggedIn">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              [(ngModel)]="credentials.password"
+            />
+            
+        </div>
+
+        <div class="input-group-append" *ngIf="!isClientLoggedIn">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="loginClient()"
+          >
+            Login Client
+          </button>
+        </div>
+        
+        <div class="alert alert-warning" *ngIf="!isClientLoggedIn">
+            No client logged in!<br />{{ errorMessage }}
+        </div>
+
+        <div class="alert alert-success" *ngIf="isClientLoggedIn">
+            Logged IN!
+        </div>
+        <br/>
+        <br/>
+
+        <div class="alert alert-success" *ngIf="isClientLoggedIn">
+            Now, choose the restaurant!
+        </div>
+
+
+        <div class="input-group-append" *ngIf="isClientLoggedIn">
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              (click)="showAllRestaurants()"
+            >
+              Show Restaurants
+            </button>
+        </div>
+
+        <div class="List of Foods Filtered" *ngIf="isClientLoggedIn && isRestaurantListHere">
+            <table>
+                <tr *ngFor="let item of dataRestaurantList">
+                    <td>{{item.id}}</td>
+                    <td>{{item.restaurantName}}</td>
+                </tr>
+            </table>
+    
+        </div>
+
+        <div id = "num6" class="form-group" *ngIf="isClientLoggedIn&& isRestaurantListHere">
+            <label for="currentIndex">Write id of restaurant</label>
+            <input
+              type="currentIndex"
+              class="form-control"
+              [(ngModel)]="currentIndex"
+            />
+            
+        </div>
+
+        <div class="input-group-append" *ngIf="isClientLoggedIn&& isRestaurantListHere">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="chooseRestaurant()"
+          >
+            Choose Id of Restaurant
+          </button>
+        </div>
+
+        <div class="List of Foods Filtered" *ngIf="isClientLoggedIn && isRestaurantListHere && isRestaurantHere">
+            <table>
+                <tr *ngFor="let item of dataRestaurantFoods">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.price}}</td>
+                </tr>
+            </table>
+    
+        </div>
+
+        <div id = "num9" class="form-group" *ngIf="isClientLoggedIn&& isRestaurantListHere && isRestaurantHere">
+          <label for="food1">Write id of first dish</label>
+          <input
+            type="food1"
+            class="form-control"
+            [(ngModel)]="ord.idFood1"
+          />
+        </div>
+
+        <div id = "num10" class="form-group" *ngIf="isClientLoggedIn&& isRestaurantListHere && isRestaurantHere">
+          <label for="food2">Write id of second dish</label>
+          <input
+            type="food2"
+            class="form-control"
+            [(ngModel)]="ord.idFood2"
+          />
+        </div>
+
+        <div class="input-group-append" *ngIf="isClientLoggedIn&& isRestaurantListHere && isRestaurantHere">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="placeOrder()"
+          >
+            PlaceOrder
+          </button>
+        </div>
+      
+    </div>
+  </div> 
