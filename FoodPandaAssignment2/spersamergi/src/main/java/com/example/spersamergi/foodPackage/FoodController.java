@@ -24,6 +24,12 @@ public class FoodController {
         foods=foodService.getAllFoods();
         return foods;
     }
+
+    /**
+     * This is the method that registers a food item in the database.
+     * @param foodDTO the structure that holds the input that will be later processed into food
+     * @return If there is no other food with the same name, an object Food and if not, a String
+     */
     @PostMapping("/addFood")
     public ResponseEntity<?> enterFood(@RequestBody foodDTO foodDTO){
 
@@ -44,6 +50,10 @@ public class FoodController {
         return new ResponseEntity<Food>(newFood,HttpStatus.CREATED);
     }
 
+    /**
+     * The method that will get all the food in the database
+     * @return a list with all the foods
+     */
     @PostMapping("/getAllFoods")
     public ResponseEntity<List<Food>> getAllFood(){
         List<Food> foods;
@@ -51,6 +61,11 @@ public class FoodController {
         return new ResponseEntity<List<Food>>(foods,HttpStatus.CREATED);
     }
 
+    /**
+     * It is the method that filters the foods by the maximal price.
+     * @param priceDTO the structure that holds the price
+     * @return a list with all the foods that pass this filter
+     */
     @PostMapping("/filterPrice")
     public ResponseEntity<List<Food>> getFilteredFood(@RequestBody priceDTO priceDTO){
         Float priceComp=Float.parseFloat(priceDTO.price);
