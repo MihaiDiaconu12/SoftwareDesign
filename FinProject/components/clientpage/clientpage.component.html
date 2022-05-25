@@ -1,0 +1,63 @@
+<div class="col-md-12">
+    <h1  class="title">Client Page</h1>
+  
+    <div id = "num2" class="card card-container" >
+        <div id = "num1" class="form-group" *ngIf="!isClientLoggedIn">
+          <label for="name">Username</label>
+          <input
+            type="name"
+            class="form-control"
+            [(ngModel)]="name"
+          />
+          
+        </div>
+
+        <div id = "num2" class="form-group" *ngIf="!isClientLoggedIn">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              [(ngModel)]="password"
+            />
+            
+        </div>
+
+        <div class="input-group-append" *ngIf="!isClientLoggedIn">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="loginClient()"
+          >
+            Login Client
+          </button>
+        </div>
+        
+        <div class="alert alert-warning" *ngIf="!isClientLoggedIn">
+            No client logged in!<br />{{ errorMessage }}
+        </div>
+
+        <div class="alert alert-success" *ngIf="isClientLoggedIn">
+            Logged IN!
+        </div>
+        <br/>
+        <br/>
+
+        
+
+        <div class="List of Foods Filtered" *ngIf="isClientLoggedIn">
+            <table>
+                <tr *ngFor="let item of dataDocumentaries">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.url}}</td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.category}}</td>
+                </tr>
+            </table>
+    
+        </div>
+
+        
+      
+    </div>
+  </div> 

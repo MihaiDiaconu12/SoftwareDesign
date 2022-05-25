@@ -1,0 +1,151 @@
+<div class="col-md-12">
+    <h1  class="title">Administrator Page</h1>
+  
+    <div id = "num2" class="card card-container">
+      <form
+        
+      >
+        <div id = "num3" class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            [(ngModel)]="name"
+            
+          />
+          
+        </div>
+        <div id = "num4" class="form-group">
+          <label for="url">URL</label>
+          <input
+            type="url"
+            class="form-control"
+            name="url"
+            [(ngModel)]="url"
+          />
+          
+        </div>
+
+        <div id = "num5" class="form-group">
+          <label for="description">Description</label>
+          <input
+            type="description"
+            class="form-control"
+            name="description"
+            [(ngModel)]="description"
+          />
+          
+        </div>
+
+        <div id = "num6" class="form-group">
+            <label for="category">Category</label>
+            <input
+              type="category"
+              class="form-control"
+              name="category"
+              [(ngModel)]="category"
+            />
+            
+          </div>
+
+          <div id = "num7" class="form-group">
+            <label for="status">Status</label>
+            <input
+              type="status"
+              class="form-control"
+              name="status"
+              [(ngModel)]="status"
+            />
+            
+          </div>
+
+          <div class="input-group-append">
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              (click)="onSubmit()"
+            >
+              Add Documentary
+            </button>
+          </div>
+
+          
+
+        <div class="alert alert-warning" *ngIf="!isSuccessful">
+            No documentary added!<br />{{ errorMessage }}
+          </div>
+      </form>
+
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Documentary added!
+      </div>
+
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="onButtonDocumentaries()"
+        >
+          Show all Documentaries
+        </button>
+      </div>
+
+      <div class="List of Documentaries" *ngIf="isListHere">
+        <table>
+            <tr *ngFor="let item of dataList">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.videoUrl}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.category}}</td>
+                <td>{{item.status}}</td>
+            </tr>
+        </table>
+
+       </div>
+
+       <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="onButtonUsers()"
+        >
+          Show all Users
+        </button>
+      </div>
+
+
+      <div class="List of Documentaries" *ngIf="areUsersHere">
+        <table>
+            <tr *ngFor="let item of dataUsers">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.status}}</td>
+            </tr>
+        </table>
+
+       </div>
+       <!--<div id = "num4" class="form-group">
+        <label for="idDoc">Id of the Documentary</label>
+        <input
+          type="idDoc"
+          class="form-control"
+          name="idDoc"
+          [(ngModel)]="idDoc"
+        />
+        
+      </div>
+
+       <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="setDocumentaryUniversal()"
+        >
+          Release Documentary for all.
+        </button>
+      </div>-->
+    </div>
+  </div> 

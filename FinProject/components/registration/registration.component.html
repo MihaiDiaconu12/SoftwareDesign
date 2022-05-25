@@ -1,0 +1,56 @@
+<div class="col-md-12">
+    <h1  class="title">Client Page</h1>
+  
+    <div id = "num2" class="card card-container" >
+        <div id = "num1" class="form-group" *ngIf="!isClientLoggedIn">
+          <label for="name">Name</label>
+          <input
+            type="name"
+            class="form-control"
+            [(ngModel)]="name"
+          />
+          
+        </div>
+
+        <div id = "num2" class="form-group" *ngIf="!isClientLoggedIn">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              [(ngModel)]="email"
+            />
+            
+        </div>
+
+        <div id = "num3" class="form-group" *ngIf="!isClientLoggedIn">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              [(ngModel)]="password"
+            />
+            
+        </div>
+
+        <div class="input-group-append" *ngIf="!isClientLoggedIn">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="registerClient()"
+          >
+            Login Client
+          </button>
+        </div>
+        
+        <div class="alert alert-warning" *ngIf="!isClientLoggedIn">
+            No client logged in!<br />{{ errorMessage }}
+        </div>
+
+        <div class="alert alert-success" *ngIf="isClientLoggedIn">
+            Logged IN!
+        </div>
+        <br/>
+        <br/>
+      
+    </div>
+  </div> 
